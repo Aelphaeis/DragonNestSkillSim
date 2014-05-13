@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="dnt">
+      <HintPath>..\..\DNTViewer\DragonNest.ResourceInspection.dnt\bin\Release\dnt.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,11 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Job.cs" />
+    <Compile Include="Types\Job.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Skill.cs" />
-    <Compile Include="SkillInformationType.cs" />
-    <Compile Include="SkillLevelInformation.cs" />
+    <Compile Include="Types\Skill.cs" />
+    <Compile Include="Types\SkillInformationType.cs" />
+    <Compile Include="Types\SkillLevelInformation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

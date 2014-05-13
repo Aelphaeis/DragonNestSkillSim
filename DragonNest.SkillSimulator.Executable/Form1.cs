@@ -16,7 +16,7 @@ namespace DragonNest.SkillSimulator.Executable
 
         DataTable SkillTableCharacter;
         DataTable SkillTableCleric;
-        public Form1()
+        public Form1() 
         {
             InitializeComponent();
             init();
@@ -37,9 +37,7 @@ namespace DragonNest.SkillSimulator.Executable
             foreach (var row in rows.Where(r => r["_NeedJob"].Equals(4)))
                 viewable.ImportRow(row);
 
-
             dataGridView1.DataSource = viewable;
-
         }
 
     }

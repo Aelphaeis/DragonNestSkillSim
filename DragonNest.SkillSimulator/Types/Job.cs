@@ -4,14 +4,20 @@ using System.Linq;
 using System.Text;
 using DragonNest.ResourceInspection.dnt;
 using System.Data;
+using System.Xml;
 namespace DragonNest.SkillSimulator.Types
 {
     using Dnt = DragonNestDataTable;
 
     public class Job
     {
+        //Job Table Column Names { jobtable.dnt }
         const string RowIdColumnId = "_JobName";
         const string ServiceColumnId = "_Service";
+        const string ParentColumnId = "_ParentJob";
+        const string RowColumnId = "Row Id";
+        //SKill Table Column Names { skilltable_character.dnt}
+        const string NeedJobId = "_NeedJob";
         public String Name
         {
             get;
@@ -30,25 +36,30 @@ namespace DragonNest.SkillSimulator.Types
             JobId = new int();
         }
 
-        public Job(int ClassId, Dnt JobTable, Dnt ClassTable)
+        public Job(int jobId, Dnt jobTable, Dnt classTable, Dnt skilltable, XmlDocument uiString) : this()
         {
             //Check to make sure nothing is null
-            if (JobTable == null)
+            if (jobTable == null)
                 throw new ArgumentNullException("JobTable");
-            if (ClassTable == null)
+            if (jobTable.Rows == null)
+                throw new ArgumentNullException("JobTable.Rows");
+            if (classTable == null)
                 throw new ArgumentNullException("ClassTable");
 
+            //Initilization
+            List<DataRow> Jobs = new List<DataRow>();
+
             //Get Information pertaining to the Job.
-            var JobRow = JobTable.Rows.Cast<DataRow>().FirstOrDefault(p => p[RowIdColumnId].Equals(ClassId));
+            var JobTableRows = jobTable.Rows.Cast<DataRow>();
+            for (int i = jobId; i != 0; i = Convert.ToInt32(Jobs.Last()[ParentColumnId])) 
+                Jobs.Add( JobTableRows.First(p => p[RowIdColumnId].Equals(jobId)));
 
-            //If we cannot find that information throw exception
-            if (JobRow == null)
-                throw new Exception("Not Such Class Id");
 
-            //If we find the information but its not active, most likely the information pertaining to the skill tree is incomplete.
-            //Throw an error to prevent unexpected behaviour.
-            if (JobRow[ServiceColumnId].Equals(false))
-                throw new Exception("The Class you specified is not in Service");
+
+
+            
+
+
         }
     }
 }
