@@ -41,6 +41,9 @@
   <ItemGroup>
     <Compile Include="Job.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Skill.cs" />
+    <Compile Include="SkillInformationType.cs" />
+    <Compile Include="SkillLevelInformation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
