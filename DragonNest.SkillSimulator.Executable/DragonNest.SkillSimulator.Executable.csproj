@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="dnt">
+      <HintPath>..\..\DNTViewer\DragonNest.ResourceInspection.dnt\bin\Release\dnt.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DNTResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DNTResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -52,6 +60,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DNTResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DNTResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -70,6 +82,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\jobtable.dnt" />
+    <None Include="Resources\skillleveltable_characteracademic.dnt" />
+    <None Include="Resources\skillleveltable_characterarcher.dnt" />
+    <None Include="Resources\skillleveltable_characterassassin.dnt" />
+    <None Include="Resources\skillleveltable_charactercleric.dnt" />
+    <None Include="Resources\skillleveltable_characteretc.dnt" />
+    <None Include="Resources\skillleveltable_characterkali.dnt" />
+    <None Include="Resources\skillleveltable_charactersoceress.dnt" />
+    <None Include="Resources\skillleveltable_characterwarrior.dnt" />
+    <None Include="Resources\skilltable_character.dnt" />
+    <None Include="Resources\skilltable_totalskill.dnt" />
+    <None Include="Resources\skilltreetable.dnt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
